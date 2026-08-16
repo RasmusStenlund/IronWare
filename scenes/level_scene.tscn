@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://di87r18twwpxx"]
+
+[ext_resource type="Script" uid="uid://dilobv724f0qa" path="res://timer_screen.gd" id="1_a74lg"]
+[ext_resource type="Texture2D" uid="uid://d0qa8e7tn4m4g" path="res://StarsOnBlack.jpg" id="2_c8xsp"]
+[ext_resource type="Texture2D" uid="uid://2x7acvahtmf0" path="res://ArcReactorDrawing.png" id="3_fkwfp"]
+
+[node name="level_scene" type="Node2D" unique_id=1450494263]
+script = ExtResource("1_a74lg")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1004604451]
+z_index = -1
+scroll_offset = Vector2(986, 111)
+repeat_size = Vector2(0, 1000)
+autoscroll = Vector2(0, 100)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=729437219]
+offset_left = -994.0
+offset_top = -417.0
+offset_right = 172.0
+offset_bottom = 749.0
+texture = ExtResource("2_c8xsp")
+expand_mode = 1
+
+[node name="ArcReactorContainer" type="HBoxContainer" parent="." unique_id=1521333174]
+offset_left = 170.0
+offset_top = 130.0
+offset_right = 976.0
+offset_bottom = 288.0
+
+[node name="ArcReactor1" type="TextureRect" parent="ArcReactorContainer" unique_id=1850434640]
+layout_mode = 2
+texture = ExtResource("3_fkwfp")
+expand_mode = 2
+
+[node name="ArcReactor2" type="TextureRect" parent="ArcReactorContainer" unique_id=1496439566]
+layout_mode = 2
+texture = ExtResource("3_fkwfp")
+expand_mode = 2
+
+[node name="ArcReactor3" type="TextureRect" parent="ArcReactorContainer" unique_id=1538072245]
+layout_mode = 2
+texture = ExtResource("3_fkwfp")
+expand_mode = 2
+
+[node name="ArcReactor4" type="TextureRect" parent="ArcReactorContainer" unique_id=640406886]
+layout_mode = 2
+texture = ExtResource("3_fkwfp")
+expand_mode = 2
+
+[node name="ArcReactor5" type="TextureRect" parent="ArcReactorContainer" unique_id=1940664030]
+layout_mode = 2
+texture = ExtResource("3_fkwfp")
+expand_mode = 2
+
+[node name="Level" type="RichTextLabel" parent="." unique_id=1409247850]
+offset_left = 446.0
+offset_top = 338.0
+offset_right = 702.0
+offset_bottom = 430.0
+theme_override_font_sizes/normal_font_size = 42
+text = "Level #"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=436345809]
+offset_left = 477.0
+offset_top = 492.0
+offset_right = 675.0
+offset_bottom = 593.0
+theme_override_font_sizes/normal_font_size = 42
+text = "0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
