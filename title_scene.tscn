@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://82dnjgettaqi"]
+
+[ext_resource type="Script" uid="uid://dv6s2mdqiencu" path="res://title_scene.gd" id="1_176dl"]
+[ext_resource type="Texture2D" uid="uid://d0qa8e7tn4m4g" path="res://StarsOnBlack.jpg" id="1_wkkv4"]
+
+[node name="TitleScreen" type="Node2D" unique_id=851834461]
+script = ExtResource("1_176dl")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=150187499]
+z_index = -1
+scroll_offset = Vector2(986, 111)
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=572695040]
+offset_top = -115.0
+offset_right = 1157.0
+offset_bottom = 1042.0
+texture = ExtResource("1_wkkv4")
+expand_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=850288115]
+clip_contents = false
+offset_left = 319.0
+offset_top = 114.0
+offset_right = 815.0
+offset_bottom = 277.0
+theme_override_colors/font_outline_color = Color(0.4181305, 0.15594739, 0.14445716, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 108
+text = "IronWare"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=761500129]
+z_index = 1
+offset_left = 460.0
+offset_top = 287.0
+offset_right = 684.0
+offset_bottom = 518.0
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1849852066]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Start"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=282467951]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1882124606]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Quit
+"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
