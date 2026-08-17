@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtvwac8d4pyn3"]
 
 [ext_resource type="Texture2D" uid="uid://d0qa8e7tn4m4g" path="res://StarsOnBlack.jpg" id="1_4c0c6"]
+[ext_resource type="Script" uid="uid://b78x8cer8pkka" path="res://scenes/minigame_3.gd" id="1_yiing"]
 [ext_resource type="Texture2D" uid="uid://dq6kicruolt11" path="res://IronWare-Wormhole.png" id="2_yiing"]
 [ext_resource type="Texture2D" uid="uid://de0pk6clduyi4" path="res://IronWarePlayer.png" id="3_nuwo7"]
 
@@ -118,6 +119,7 @@ _data = {
 }
 
 [node name="minigame_3" type="Node2D" unique_id=1495582142]
+script = ExtResource("1_yiing")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1327099410]
 z_index = -1
@@ -136,7 +138,7 @@ expand_mode = 1
 offset_left = 888.0
 offset_top = 187.0
 offset_right = 1137.0
-offset_bottom = 436.00186
+offset_bottom = 436.0046
 texture = ExtResource("2_yiing")
 expand_mode = 1
 
@@ -156,15 +158,14 @@ color = Color(0.47479695, 1.1130236e-06, 3.6098064e-07, 1)
 [node name="win_area" type="ColorRect" parent="timing_game" unique_id=1198469192]
 offset_left = 543.0
 offset_top = 537.0
-offset_right = 1202.6665
+offset_right = 622.2
 offset_bottom = 554.0
-scale = Vector2(0.120000005, 1)
 color = Color(0.76567864, 0.6292025, 3.85046e-07, 1)
 
 [node name="cursor" type="ColorRect" parent="timing_game" unique_id=328086555]
 offset_left = 168.0
 offset_top = 525.0
-offset_right = 180.99963
+offset_right = 181.00012
 offset_bottom = 566.0
 color = Color(0, 0.80417514, 0.80417514, 1)
 
@@ -185,10 +186,12 @@ text = "Stop"
 offset_left = 103.0
 offset_top = 192.0
 offset_right = 249.0
-offset_bottom = 445.82672
+offset_bottom = 445.8263
 texture = ExtResource("3_nuwo7")
 expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IronMan" unique_id=1507776978]
 libraries/ = SubResource("AnimationLibrary_jb04s")
 autoplay = &"hover"
+
+[connection signal="pressed" from="timing_game/Button" to="." method="_on_button_pressed"]

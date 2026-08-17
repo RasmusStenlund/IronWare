@@ -69,14 +69,14 @@ theme_override_constants/outline_size = 40
 theme_override_font_sizes/normal_font_size = 108
 text = "IronWare"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=761500129]
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=761500129]
 z_index = 1
 offset_left = 460.0
 offset_top = 333.0
 offset_right = 684.0
 offset_bottom = 564.0
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=1849852066]
+[node name="Start" type="Button" parent="ButtonContainer" unique_id=1849852066]
 z_index = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
@@ -84,7 +84,7 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 26
 text = "Start"
 
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=282467951]
+[node name="Settings" type="Button" parent="ButtonContainer" unique_id=282467951]
 z_index = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
@@ -92,7 +92,7 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 26
 text = "Settings"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1882124606]
+[node name="Quit" type="Button" parent="ButtonContainer" unique_id=1882124606]
 z_index = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
@@ -123,5 +123,44 @@ text = "Get back to NYC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Settings" type="ColorRect" parent="." unique_id=2103576533]
+visible = false
+offset_left = 410.0
+offset_top = 321.0
+offset_right = 730.0
+offset_bottom = 534.0
+color = Color(0.31363085, 0.19454017, 2.4065375e-07, 1)
+
+[node name="Back" type="Button" parent="Settings" unique_id=897011591]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 153.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 26
+text = "← Back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings" unique_id=1829727269]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 99.0
+offset_right = 216.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 26
+text = "Fullscreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Settings" unique_id=1116471194]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 98.0
+offset_right = 219.0
+offset_bottom = 122.0
+scale = Vector2(2.0536237, 2.0536237)
+
+[connection signal="pressed" from="ButtonContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings/Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="Settings/CheckBox" to="." method="_on_check_box_toggled"]
