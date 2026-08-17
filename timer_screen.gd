@@ -24,21 +24,21 @@ func _ready():
 func _process(delta):
 	match Global.lives:
 		4:
-			arc1.hide()
+			arc5.texture = load("res://ArcReactorDrawing-Grey.png")
 		3:
-			arc1.hide()
-			arc2.hide()
+			arc5.texture = load("res://ArcReactorDrawing-Grey.png")
+			arc4.texture = load("res://ArcReactorDrawing-Grey.png")
 		2:
-			arc1.hide()
-			arc2.hide()
-			arc3.hide()
+			arc5.texture = load("res://ArcReactorDrawing-Grey.png")
+			arc4.texture = load("res://ArcReactorDrawing-Grey.png")
+			arc3.texture = load("res://ArcReactorDrawing-Grey.png")
 		1:
-			arc1.hide()
-			arc2.hide()
-			arc3.hide()
-			arc4.hide()
+			arc5.texture = load("res://ArcReactorDrawing-Grey.png")
+			arc4.texture = load("res://ArcReactorDrawing-Grey.png")
+			arc3.texture = load("res://ArcReactorDrawing-Grey.png")
+			arc2.texture = load("res://ArcReactorDrawing-Grey.png")
 		0:
-			arc_container.hide()
+			get_tree().change_scene_to_file("res://scenes/lose_screen.tscn")
 	
 	timer.text = str(time)
 	level.text = "Level " + str(Global.minigames_done + 1)

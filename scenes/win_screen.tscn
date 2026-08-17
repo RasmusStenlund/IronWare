@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b1teuyjdmdeie"]
+
+[ext_resource type="Script" uid="uid://q2qcbv7xefou" path="res://scenes/win_screen.gd" id="1_erk2x"]
+[ext_resource type="Texture2D" uid="uid://d2tilu2avv5op" path="res://IronWare-WinBackground.jpg" id="1_wv5lq"]
+
+[node name="win_screen" type="Node2D" unique_id=1958264578]
+script = ExtResource("1_erk2x")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1609544288]
+offset_right = 1084.9408
+offset_bottom = 609.37506
+scale = Vector2(1.0650256, 1.0650256)
+texture = ExtResource("1_wv5lq")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2106451156]
+offset_left = 143.0
+offset_top = 54.0
+offset_right = 1025.0
+offset_bottom = 242.0
+theme_override_colors/font_outline_color = Color(0.41960785, 0.15686275, 0.14509805, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 45
+text = "You successfully got back to New York City!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1969687930]
+z_index = 1
+offset_left = 460.0
+offset_top = 287.0
+offset_right = 684.0
+offset_bottom = 518.0
+
+[node name="Again" type="Button" parent="VBoxContainer" unique_id=905784067]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Play Again"
+
+[node name="Main" type="Button" parent="VBoxContainer" unique_id=1224991761]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1731121444]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Quit
+"
+
+[connection signal="pressed" from="VBoxContainer/Again" to="." method="_on_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main" to="." method="_on_main_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -11,10 +11,14 @@ func _process(delta):
 	pass
 
 
-func _on_start_pressed():
+func _on_again_pressed():
 	Global.reset()
 	get_tree().change_scene_to_file("res://scenes/timer_scene.tscn")
-	
+
+
+
+func _on_main_pressed():
+	get_tree().change_scene_to_file("res://scenes/title_scene.tscn")
 
 
 func _on_quit_pressed():

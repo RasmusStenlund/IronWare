@@ -11,8 +11,8 @@ func _ready():
 
 func _process(delta):
 	if buttons_pressed == 6:
-		if Global.minigames_done > 3:
-			get_tree().change_scene_to_file("res://scenes/done_scene.tscn")
+		if Global.minigames_done >= Global.minigame_count:
+			get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scenes/timer_scene.tscn")
 	if timer_end:

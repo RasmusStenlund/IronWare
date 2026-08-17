@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://dtvwac8d4pyn3"]
+
+[ext_resource type="Texture2D" uid="uid://d0qa8e7tn4m4g" path="res://StarsOnBlack.jpg" id="1_4c0c6"]
+[ext_resource type="Texture2D" uid="uid://dq6kicruolt11" path="res://IronWare-Wormhole.png" id="2_yiing"]
+[ext_resource type="Texture2D" uid="uid://de0pk6clduyi4" path="res://IronWarePlayer.png" id="3_nuwo7"]
+
+[sub_resource type="Animation" id="Animation_rguwe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(888, 187)]
+}
+
+[sub_resource type="Animation" id="Animation_knknf"]
+resource_name = "hover"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(888, 187), Vector2(888, 175)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybnx4"]
+_data = {
+&"RESET": SubResource("Animation_rguwe"),
+&"hover": SubResource("Animation_knknf")
+}
+
+[sub_resource type="Animation" id="Animation_w3p2l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 525)]
+}
+
+[sub_resource type="Animation" id="Animation_1my4u"]
+resource_name = "cursor_move"
+length = 1.7
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(168, 525), Vector2(973, 525)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sfvvs"]
+_data = {
+&"RESET": SubResource("Animation_w3p2l"),
+&"cursor_move": SubResource("Animation_1my4u")
+}
+
+[sub_resource type="Animation" id="Animation_j0t4l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(103, 192)]
+}
+
+[sub_resource type="Animation" id="Animation_n2v43"]
+resource_name = "hover"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(103, 192), Vector2(103, 172)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jb04s"]
+_data = {
+&"RESET": SubResource("Animation_j0t4l"),
+&"hover": SubResource("Animation_n2v43")
+}
+
+[node name="minigame_3" type="Node2D" unique_id=1495582142]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1327099410]
+z_index = -1
+scroll_offset = Vector2(986, 111)
+repeat_size = Vector2(1000, 1000)
+autoscroll = Vector2(100, 100)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=529831059]
+offset_top = -115.0
+offset_right = 1157.0
+offset_bottom = 1042.0
+texture = ExtResource("1_4c0c6")
+expand_mode = 1
+
+[node name="Wormhole" type="TextureRect" parent="." unique_id=393411095]
+offset_left = 888.0
+offset_top = 187.0
+offset_right = 1137.0
+offset_bottom = 436.00186
+texture = ExtResource("2_yiing")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wormhole" unique_id=1003802732]
+libraries/ = SubResource("AnimationLibrary_ybnx4")
+autoplay = &"hover"
+
+[node name="timing_game" type="Node2D" parent="." unique_id=1493510936]
+
+[node name="fail_area" type="ColorRect" parent="timing_game" unique_id=1105143682]
+offset_left = 168.0
+offset_top = 537.0
+offset_right = 986.0
+offset_bottom = 554.0
+color = Color(0.47479695, 1.1130236e-06, 3.6098064e-07, 1)
+
+[node name="win_area" type="ColorRect" parent="timing_game" unique_id=1198469192]
+offset_left = 543.0
+offset_top = 537.0
+offset_right = 1202.6665
+offset_bottom = 554.0
+scale = Vector2(0.120000005, 1)
+color = Color(0.76567864, 0.6292025, 3.85046e-07, 1)
+
+[node name="cursor" type="ColorRect" parent="timing_game" unique_id=328086555]
+offset_left = 168.0
+offset_top = 525.0
+offset_right = 180.99963
+offset_bottom = 566.0
+color = Color(0, 0.80417514, 0.80417514, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="timing_game/cursor" unique_id=407965434]
+libraries/ = SubResource("AnimationLibrary_sfvvs")
+autoplay = &"cursor_move"
+
+[node name="Button" type="Button" parent="timing_game" unique_id=1368714751]
+offset_left = 478.0
+offset_top = 581.0
+offset_right = 686.0
+offset_bottom = 626.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 26
+text = "Stop"
+
+[node name="IronMan" type="TextureRect" parent="." unique_id=700509697]
+offset_left = 103.0
+offset_top = 192.0
+offset_right = 249.0
+offset_bottom = 445.82672
+texture = ExtResource("3_nuwo7")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="IronMan" unique_id=1507776978]
+libraries/ = SubResource("AnimationLibrary_jb04s")
+autoplay = &"hover"
