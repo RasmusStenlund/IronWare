@@ -1,0 +1,226 @@
+[gd_scene format=3 uid="uid://pd07dwpr1rmc"]
+
+[ext_resource type="Texture2D" uid="uid://d0qa8e7tn4m4g" path="res://StarsOnBlack.jpg" id="1_tk6fs"]
+[ext_resource type="PackedScene" uid="uid://bhgxo5ror3bfr" path="res://scenes/player.tscn" id="2_og05i"]
+[ext_resource type="Texture2D" uid="uid://2x7acvahtmf0" path="res://ArcReactorDrawing.png" id="3_lmjug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cw5p"]
+size = Vector2(40, 40)
+
+[sub_resource type="Animation" id="Animation_v5ebm"]
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArcReactor:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+
+[sub_resource type="Animation" id="Animation_fa05o"]
+resource_name = "floating"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArcReactor:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j1cg4"]
+_data = {
+&"RESET": SubResource("Animation_v5ebm"),
+&"floating": SubResource("Animation_fa05o")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6cw5p"]
+radius = 37.01351
+
+[node name="minigame_1" type="Node2D" unique_id=908379644]
+
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1489834620]
+position = Vector2(-10, 588)
+scale = Vector2(29.759996, 1.7600002)
+
+[node name="ColorRect" type="ColorRect" parent="Platform1" unique_id=671253095]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.001054641, 0.11147689, 0.5077114, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=76501470]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6cw5p")
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1877061069]
+position = Vector2(417, 497)
+scale = Vector2(10.679991, 0.96000034)
+
+[node name="ColorRect" type="ColorRect" parent="Platform2" unique_id=1860110000]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.001054641, 0.11147689, 0.5077114, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1066892721]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6cw5p")
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=938949321]
+position = Vector2(1004.99994, 386.99997)
+scale = Vector2(10.679991, 0.96000034)
+
+[node name="ColorRect" type="ColorRect" parent="Platform3" unique_id=625503616]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.001054641, 0.11147689, 0.5077114, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=350326621]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6cw5p")
+
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=1262173667]
+position = Vector2(347.00003, 286.99997)
+scale = Vector2(10.679991, 0.96000034)
+
+[node name="ColorRect" type="ColorRect" parent="Platform4" unique_id=653496543]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.001054641, 0.11147689, 0.5077114, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=965613989]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6cw5p")
+
+[node name="Platform5" type="StaticBody2D" parent="." unique_id=206463924]
+position = Vector2(-214.00003, 184.99998)
+scale = Vector2(10.679991, 0.96000034)
+
+[node name="ColorRect" type="ColorRect" parent="Platform5" unique_id=16079185]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.001054641, 0.11147689, 0.5077114, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5" unique_id=714702338]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6cw5p")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=454317085]
+z_index = -1
+scroll_offset = Vector2(986, 111)
+repeat_size = Vector2(1000, 1000)
+autoscroll = Vector2(100, 100)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1318125910]
+offset_top = -115.0
+offset_right = 1157.0
+offset_bottom = 1042.0
+texture = ExtResource("1_tk6fs")
+expand_mode = 1
+
+[node name="Player" parent="." unique_id=1807212027 instance=ExtResource("2_og05i")]
+position = Vector2(86, 502)
+
+[node name="ArcReactor1" type="Node2D" parent="." unique_id=1277209495]
+position = Vector2(589, 386)
+
+[node name="ArcReactor" type="TextureRect" parent="ArcReactor1" unique_id=368128151]
+offset_right = 91.0
+offset_bottom = 91.0
+texture = ExtResource("3_lmjug")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="ArcReactor1" unique_id=52811525]
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+autoplay = &"floating"
+
+[node name="Area2D" type="Area2D" parent="ArcReactor1" unique_id=706072798]
+position = Vector2(46, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor1/Area2D" unique_id=1938816757]
+shape = SubResource("CircleShape2D_6cw5p")
+
+[node name="ArcReactor2" type="Node2D" parent="." unique_id=81238695]
+position = Vector2(1049, 466)
+
+[node name="ArcReactor" type="TextureRect" parent="ArcReactor2" unique_id=823616381]
+offset_right = 91.0
+offset_bottom = 91.0
+texture = ExtResource("3_lmjug")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="ArcReactor2" unique_id=999588982]
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+autoplay = &"RESET"
+
+[node name="Area2D" type="Area2D" parent="ArcReactor2" unique_id=1372008912]
+position = Vector2(46, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor2/Area2D" unique_id=527983512]
+shape = SubResource("CircleShape2D_6cw5p")
+
+[node name="ArcReactor3" type="Node2D" parent="." unique_id=1885029728]
+position = Vector2(793, 1)
+
+[node name="ArcReactor" type="TextureRect" parent="ArcReactor3" unique_id=1771433904]
+offset_right = 91.0
+offset_bottom = 91.0
+texture = ExtResource("3_lmjug")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="ArcReactor3" unique_id=1967373283]
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+autoplay = &"RESET"
+
+[node name="Area2D" type="Area2D" parent="ArcReactor3" unique_id=1855511580]
+position = Vector2(46, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor3/Area2D" unique_id=197640913]
+shape = SubResource("CircleShape2D_6cw5p")
+
+[node name="ArcReactor4" type="Node2D" parent="." unique_id=869315482]
+position = Vector2(8, 57)
+
+[node name="ArcReactor" type="TextureRect" parent="ArcReactor4" unique_id=1214494499]
+offset_right = 91.0
+offset_bottom = 91.0
+texture = ExtResource("3_lmjug")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="ArcReactor4" unique_id=653785030]
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+autoplay = &"RESET"
+
+[node name="Area2D" type="Area2D" parent="ArcReactor4" unique_id=1809220830]
+position = Vector2(46, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor4/Area2D" unique_id=953691839]
+shape = SubResource("CircleShape2D_6cw5p")
+
+[node name="ArcReactor5" type="Node2D" parent="." unique_id=1166838818]
+position = Vector2(41, 299)
+
+[node name="ArcReactor" type="TextureRect" parent="ArcReactor5" unique_id=2097244139]
+offset_right = 91.0
+offset_bottom = 91.0
+texture = ExtResource("3_lmjug")
+expand_mode = 1
+
+[node name="animation" type="AnimationPlayer" parent="ArcReactor5" unique_id=891850965]
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+autoplay = &"RESET"
+
+[node name="Area2D" type="Area2D" parent="ArcReactor5" unique_id=2078563370]
+position = Vector2(46, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor5/Area2D" unique_id=539172702]
+shape = SubResource("CircleShape2D_6cw5p")

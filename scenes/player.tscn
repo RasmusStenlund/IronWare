@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bhgxo5ror3bfr"]
+
+[ext_resource type="Script" uid="uid://bqyd0h6vy04oj" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://de0pk6clduyi4" path="res://IronWarePlayer.png" id="2_qhqgy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6cw5p"]
+radius = 75.00667
+
+[node name="Player" type="CharacterBody2D" unique_id=1807212027]
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1251609121]
+position = Vector2(0.3124952, -0.32772934)
+scale = Vector2(0.2946113, 0.2946113)
+texture = ExtResource("2_qhqgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=333425691]
+shape = SubResource("CircleShape2D_6cw5p")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=234806042]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=459418410]
+shape = SubResource("CircleShape2D_6cw5p")
