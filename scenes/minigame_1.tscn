@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://pd07dwpr1rmc"]
 
+[ext_resource type="Script" uid="uid://wb051d4iooqn" path="res://scenes/minigame_1.gd" id="1_j1cg4"]
 [ext_resource type="Texture2D" uid="uid://d0qa8e7tn4m4g" path="res://StarsOnBlack.jpg" id="1_tk6fs"]
-[ext_resource type="PackedScene" uid="uid://bhgxo5ror3bfr" path="res://scenes/player.tscn" id="2_og05i"]
+[ext_resource type="PackedScene" uid="uid://bhgxo5ror3bfr" path="res://player.tscn" id="2_og05i"]
 [ext_resource type="Texture2D" uid="uid://2x7acvahtmf0" path="res://ArcReactorDrawing.png" id="3_lmjug"]
+[ext_resource type="Script" uid="uid://dajtra60xuayh" path="res://scenes/platformer_arc.gd" id="3_v5ebm"]
+[ext_resource type="PackedScene" uid="uid://boeclycmwcri5" path="res://timer.tscn" id="6_vc5od"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cw5p"]
 size = Vector2(40, 40)
@@ -48,6 +51,7 @@ _data = {
 radius = 37.01351
 
 [node name="minigame_1" type="Node2D" unique_id=908379644]
+script = ExtResource("1_j1cg4")
 
 [node name="Platform1" type="StaticBody2D" parent="." unique_id=1489834620]
 position = Vector2(-10, 588)
@@ -114,6 +118,32 @@ color = Color(0.001054641, 0.11147689, 0.5077114, 1)
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_6cw5p")
 
+[node name="Wall1" type="StaticBody2D" parent="." unique_id=578450742]
+position = Vector2(-106, -95)
+scale = Vector2(1.6799927, 20.200005)
+
+[node name="ColorRect" type="ColorRect" parent="Wall1" unique_id=609090055]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.001054641, 0.11147689, 0.5077114, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" unique_id=1251159666]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6cw5p")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=1300067016]
+position = Vector2(1195.9999, -95)
+scale = Vector2(1.6799927, 20.200005)
+
+[node name="ColorRect" type="ColorRect" parent="Wall2" unique_id=332990336]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.001054641, 0.11147689, 0.5077114, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=2038486626]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6cw5p")
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=454317085]
 z_index = -1
 scroll_offset = Vector2(986, 111)
@@ -132,6 +162,7 @@ position = Vector2(86, 502)
 
 [node name="ArcReactor1" type="Node2D" parent="." unique_id=1277209495]
 position = Vector2(589, 386)
+script = ExtResource("3_v5ebm")
 
 [node name="ArcReactor" type="TextureRect" parent="ArcReactor1" unique_id=368128151]
 offset_right = 91.0
@@ -151,6 +182,7 @@ shape = SubResource("CircleShape2D_6cw5p")
 
 [node name="ArcReactor2" type="Node2D" parent="." unique_id=81238695]
 position = Vector2(1049, 466)
+script = ExtResource("3_v5ebm")
 
 [node name="ArcReactor" type="TextureRect" parent="ArcReactor2" unique_id=823616381]
 offset_right = 91.0
@@ -168,59 +200,28 @@ position = Vector2(46, 41)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor2/Area2D" unique_id=527983512]
 shape = SubResource("CircleShape2D_6cw5p")
 
-[node name="ArcReactor3" type="Node2D" parent="." unique_id=1885029728]
-position = Vector2(793, 1)
-
-[node name="ArcReactor" type="TextureRect" parent="ArcReactor3" unique_id=1771433904]
-offset_right = 91.0
-offset_bottom = 91.0
-texture = ExtResource("3_lmjug")
-expand_mode = 1
-
-[node name="animation" type="AnimationPlayer" parent="ArcReactor3" unique_id=1967373283]
-libraries/ = SubResource("AnimationLibrary_j1cg4")
-autoplay = &"RESET"
-
-[node name="Area2D" type="Area2D" parent="ArcReactor3" unique_id=1855511580]
-position = Vector2(46, 41)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor3/Area2D" unique_id=197640913]
-shape = SubResource("CircleShape2D_6cw5p")
-
-[node name="ArcReactor4" type="Node2D" parent="." unique_id=869315482]
+[node name="ArcReactor3" type="Node2D" parent="." unique_id=869315482]
 position = Vector2(8, 57)
+script = ExtResource("3_v5ebm")
 
-[node name="ArcReactor" type="TextureRect" parent="ArcReactor4" unique_id=1214494499]
+[node name="ArcReactor" type="TextureRect" parent="ArcReactor3" unique_id=1214494499]
 offset_right = 91.0
 offset_bottom = 91.0
 texture = ExtResource("3_lmjug")
 expand_mode = 1
 
-[node name="animation" type="AnimationPlayer" parent="ArcReactor4" unique_id=653785030]
+[node name="animation" type="AnimationPlayer" parent="ArcReactor3" unique_id=653785030]
 libraries/ = SubResource("AnimationLibrary_j1cg4")
 autoplay = &"RESET"
 
-[node name="Area2D" type="Area2D" parent="ArcReactor4" unique_id=1809220830]
+[node name="Area2D" type="Area2D" parent="ArcReactor3" unique_id=1809220830]
 position = Vector2(46, 41)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor4/Area2D" unique_id=953691839]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor3/Area2D" unique_id=953691839]
 shape = SubResource("CircleShape2D_6cw5p")
 
-[node name="ArcReactor5" type="Node2D" parent="." unique_id=1166838818]
-position = Vector2(41, 299)
+[node name="ThemedTimer" parent="." unique_id=979489312 instance=ExtResource("6_vc5od")]
 
-[node name="ArcReactor" type="TextureRect" parent="ArcReactor5" unique_id=2097244139]
-offset_right = 91.0
-offset_bottom = 91.0
-texture = ExtResource("3_lmjug")
-expand_mode = 1
-
-[node name="animation" type="AnimationPlayer" parent="ArcReactor5" unique_id=891850965]
-libraries/ = SubResource("AnimationLibrary_j1cg4")
-autoplay = &"RESET"
-
-[node name="Area2D" type="Area2D" parent="ArcReactor5" unique_id=2078563370]
-position = Vector2(46, 41)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcReactor5/Area2D" unique_id=539172702]
-shape = SubResource("CircleShape2D_6cw5p")
+[connection signal="arc_collected" from="ArcReactor1" to="." method="arc_collect"]
+[connection signal="arc_collected" from="ArcReactor2" to="." method="arc_collect"]
+[connection signal="arc_collected" from="ArcReactor3" to="." method="arc_collect"]

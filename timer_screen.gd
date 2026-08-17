@@ -12,7 +12,7 @@ var time
 
 
 func _ready():
-	await Timer(5.0)
+	await Timer(4.0)
 	
 	if Global.minigames_done < 3:
 		Global.minigames_done += 1
@@ -41,7 +41,7 @@ func _process(delta):
 			arc_container.hide()
 	
 	timer.text = str(time)
-	level.text = "Level " + str(Global.minigames_done)
+	level.text = "Level " + str(Global.minigames_done + 1)
 	
 func Timer(start_time: float):
 	time = start_time
